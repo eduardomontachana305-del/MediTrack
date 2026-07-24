@@ -14,7 +14,7 @@ public class AppointmentTest {
     public void getters_datosDelConstructor_debenRetornarLosMismosValores() {
         // Arrange
         List<String> emails = List.of(
-                "fabricio.montachana@gmail.com",
+                "paciente@gmail.com",
                 "familiar@gmail.com"
         );
 
@@ -22,7 +22,7 @@ public class AppointmentTest {
                 "A10",
                 "Fabricio Montachana",
                 "Oftalmología",
-                40.00,
+                60.00,
                 emails
         );
 
@@ -37,7 +37,7 @@ public class AppointmentTest {
         assertEquals("A10", idObtenido);
         assertEquals("Fabricio Montachana", pacienteObtenido);
         assertEquals("Oftalmología", especialidadObtenida);
-        assertEquals(Double.valueOf(40.00), costoObtenido);
+        assertEquals(Double.valueOf(60.00), costoObtenido);
         assertEquals(emails, emailsObtenidos);
     }
 
@@ -45,13 +45,13 @@ public class AppointmentTest {
     public void constructor_listaOriginalModificada_debeConservarCopiaDefensiva() {
         // Arrange
         List<String> emailsOriginales = new ArrayList<>();
-        emailsOriginales.add("fabricio.montachana@gmail.com");
+        emailsOriginales.add("paciente@gmail.com");
 
         Appointment appointment = new Appointment(
                 "A11",
-                "Hugo Montachana",
+                "Ruth Aldana",
                 "Traumatología",
-                35.00,
+                37.00,
                 emailsOriginales
         );
 
@@ -69,16 +69,16 @@ public class AppointmentTest {
         // Arrange
         Appointment appointment = new Appointment(
                 "A12",
-                "Rosario Aldana",
+                "Johana Villacis",
                 "Nutrición",
-                28.00,
-                List.of("rosario.aldana@gmail.com")
+                27.00,
+                List.of("Johana@gmail.com")
         );
 
         // Act
         List<String> emailsSoloLectura = appointment.getNotifyEmails();
 
         // Assert
-        emailsSoloLectura.add("correo.nuevo@gmail.com");
+        emailsSoloLectura.add("no.debe.agregarse@gmail.com");
     }
 }
