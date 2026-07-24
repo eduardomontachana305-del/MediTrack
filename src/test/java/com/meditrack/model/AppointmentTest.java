@@ -7,6 +7,7 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotSame;
+import static org.junit.Assert.assertThrows;
 
 public class AppointmentTest {
 
@@ -15,14 +16,14 @@ public class AppointmentTest {
         // Arrange
         List<String> emails = List.of(
                 "fabricio.montachana@gmail.com",
-                "familiar@gmail.com"
+                "familiar.montachana@gmail.com"
         );
 
         Appointment appointment = new Appointment(
                 "A10",
                 "Fabricio Montachana",
                 "Oftalmología",
-                40.00,
+                60.00,
                 emails
         );
 
@@ -37,7 +38,7 @@ public class AppointmentTest {
         assertEquals("A10", idObtenido);
         assertEquals("Fabricio Montachana", pacienteObtenido);
         assertEquals("Oftalmología", especialidadObtenida);
-        assertEquals(Double.valueOf(40.00), costoObtenido);
+        assertEquals(Double.valueOf(60.00), costoObtenido);
         assertEquals(emails, emailsObtenidos);
     }
 
@@ -64,7 +65,7 @@ public class AppointmentTest {
         assertNotSame(emailsOriginales, emailsDelObjeto);
     }
 
-    @Test(expected = UnsupportedOperationException.class)
+    @Test
     public void getterNotifyEmails_intentoDeModificar_debeRechazarElCambio() {
         // Arrange
         Appointment appointment = new Appointment(
@@ -79,6 +80,9 @@ public class AppointmentTest {
         List<String> emailsSoloLectura = appointment.getNotifyEmails();
 
         // Assert
-        emailsSoloLectura.add("correo.nuevo@gmail.com");
+        assertThrows(
+                UnsupportedOperationException.class,
+                () -> emailsSoloLectura.add("correo.nuevo@gmail.com")
+        );
     }
 }
