@@ -24,7 +24,7 @@ public class AppointmentService {
                         "A1",
                         "Rosario Aldana",
                         "Cardiología",
-                        45.00,
+                        35.00,
                         List.of("Rosario.aldana@gmail.com")
                 ),
                 new Appointment(
@@ -38,12 +38,12 @@ public class AppointmentService {
                         "A3",
                         "Norma Toaza",
                         "Dermatología",
-                        55.50,
+                        60.00,
                         List.of("norma.toaza@gmail.com")
                 ),
                 new Appointment(
                         "A4",
-                        "Luis Chicaiza",
+                        "luis Chicaiza",
                         "Neurología",
                         0.00,
                         List.of("luis.chicaiza@gmail.com")
@@ -52,7 +52,7 @@ public class AppointmentService {
                         "A5",
                         "Josue Aldana",
                         "Medicina General",
-                        25.00,
+                        20.00,
                         List.of()
                 )
         ));
